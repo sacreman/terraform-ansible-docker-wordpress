@@ -12,12 +12,12 @@
         name: "{{ item }}"
       with_items:
         - six==1.4
-        - docker-py==1.1.0
+        - docker-py==1.5.0
 
     - name: "application container"
       docker:
         name: myapplication
-        docker_api_version: 1.21
+        docker_api_version: 1.19
         image: wordpress
         state: reloaded
         restart_policy: always
