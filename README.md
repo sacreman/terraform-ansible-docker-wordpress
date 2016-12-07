@@ -4,6 +4,10 @@ Copy set-env.sh.example to set-env.sh and update with credentials. You also need
 
 `./cloud-automation.sh hello-world dev 2 t2.micro`
 
+To remove it all:
+
+`./destroy.sh hello-world dev 2 t2.micro`
+
 # Requirements:
 
 Imagine you’re part of a team that is starting a blogging application that would eventually run on the cloud (let’s
