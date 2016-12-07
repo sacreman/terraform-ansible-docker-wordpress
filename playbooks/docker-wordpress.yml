@@ -1,0 +1,26 @@
+---
+- name: Pull and run docker.
+  hosts: web
+  user: ubuntu
+  sudo: yes
+  tasks:
+    - name: Run docker setup
+      command: docker pull wordpress
+
+    - name: Docker-PY
+      pip:
+        name: "{{ item }}"
+      with_items:
+        - six==1.4
+        - docker-py==1.1.0
+
+    - name: "application container"
+      docker:
+        name: myapplication
+        docker_api_version: 1.21
+        image: wordpress
+        state: reloaded
+        restart_policy: always
+        pull: always
+        ports: 80:80
+        env: WORDPRESS_DB_HOST={{ DB_HOST }},WORDPRESS_DB_USER={{ DB_USER }}, WORDPRESS_DB_PASSWORD={{ DB_PASS }}

@@ -1,0 +1,6 @@
+.idea/
+set-env.sh
+steven-acreman-keypair.pem
+terraform.tfstate
+terraform.tfstate.backup
+playbooks/*.retry
